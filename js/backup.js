@@ -4,7 +4,7 @@ $.cookie.json = true;
 if($.cookie("portfolio") == null){
     //creating a new section with the defaul values
     var json = {"portfolio":{
-        "money":99000, 
+        "money":100000, 
          "stock":[
         {
             "company": "Ford",
@@ -30,7 +30,7 @@ if($.cookie("portfolio") == null){
 }
 
 var _portfolio = JSON.parse($.cookie('portfolio'));
-//$.removeCookie('portfolio'); 
+
 
 updateTable();
 

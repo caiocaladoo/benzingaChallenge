@@ -5,7 +5,7 @@ var query = location.search.slice(3, location.search.length);
 
 //do a "search" using the stock's symbol
 $(document).on("click", ".item-table", function(){
-    window.location = "/benzinga/?q="+$(this).attr('id');
+    window.location = "/~cpereiracalado/personal/benzinga/?q="+$(this).attr('id');
 });
 
 
@@ -258,5 +258,5 @@ window.onload = function(){
 };
 
 function reloadPage(){
-    window.location = "/benzinga/?q=" + query;
+    window.location = "/~cpereiracalado/personal/benzinga/?q=" + query;
 }
