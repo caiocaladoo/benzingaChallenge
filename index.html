@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bezinga's Challenge for the 2015 Summer Internship">
+    <meta name="author" content="@caiocalado">
+
+    <title>Benzinga's Challenge</title>
+    
+    <link rel="shortcut icon" href="http://cdn1.benzinga.com/files/bz2_favicon_2.ico" type="image/x-icon">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href=".">
+                    <span class="light">Simple</span> Stock Exchange
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <div class="col-sm-8 col-md-8 col-xs-8 pull-right">
+                    <form class="navbar-form" role="search" id="searchForm">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="q">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+            </div>    
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+    <!-- Content -->
+    <section class="container content-section text-center">
+        <div class="row">
+            <div id="greetingDiv" class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                <h2>Welcome back!</h2>
+            </div>
+            
+            <div id="errorDiv" class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                <h4>Hum... We are sorry for that, but we did not find what you have requested for!</h4>
+                <br>
+                <h4 id="errorDivMessage"></h4>
+                <br>
+                <h4>If you are not sure about the symbol, we have some links that can help you:</h4>
+                <!-- helping the user -->
+                
+                <ul class="list-inline">
+                    <li><a class="btn btn-default links-list" href="http://www.nasdaq.com/investing/glossary/" target="_blank" style="margin-top: 10px;">Nasdaq glossary</a></li>
+                    <li><a class="btn btn-default links-list" href="http://www.londonstockexchange.com/prices-and-markets/stocks/stocks-and-prices.htm" target="_blank">List of Stocks Traded on London Stock Exchange</a></li>
+                    <li><a class="btn btn-default links-list" href="http://finance.yahoo.com/" target="_blank">Stock Symbol Lookup – Yahoo</a></li>
+                    <li><a class="btn btn-default links-list" href="http://www.dailyfinance.com/" target="_blank">Stock Symbol Lookup – AOL Finance</a></li>
+                    <li><a class="btn btn-default links-list" href="http://www.macroaxis.com/invest/companyDirectory" target="_blank">Global symbol directory of traded stocks, funds and ETFs</a></li>
+                </ul>
+                
+            </div>
+            
+            <div id="chartDiv" class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                <!-- Symbol's Info-->
+                <ul class="list-inline">
+                    <li>
+                        <h2 id='nameSymbol'></h2>
+                    </li>
+                    <li>
+                        <span id="symbolCode"></span>
+                    </li>
+                </ul>
+                   
+                <ul class="list-inline">
+                    <li>
+                        <span id="closeSymbol"></span> 
+                    </li>
+                    <li>
+                        <span id="changeSymbol"></span>
+                    </li>
+                    <li>
+                        <span id="changePercentageSymbol"></span> 
+                    </li>
+                </ul>
+                
+                <!-- Symbol's Info-->
+                
+                <!-- chart -->
+                <div class='chart'>
+                    <svg id="bidChart"></svg>
+                    <svg id="askChart"></svg>
+                </div>
+                <!-- chart -->
+                
+                <!-- buttons-->
+                
+                <ul class="list-inline">
+                    <li>
+                        <button class="btn btn-default" id="sellBtn">sell</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-default" id="buyBtn">buy</button>
+                        </li>
+                    </li>
+                    
+                </ul>
+                
+                <!-- buttons-->
+        
+                <!--- form-->
+    
+                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                    <form id="form" method="post">
+                        <input type="number" class="form-control" id="qtdForm" placeholder="Quantity" min="1">
+                        <h3 id='value'></h3>
+                        
+                    </form>
+                
+                </div>
+                <h6 id='noMoneyMessage'>We feel sorry in say that, but you don't have money enough to complete this action.</h6>
+                <h6 id='noStockMessage'>We feel sorry in say that, but you don't have stock enough to complete this action.</h6>
+                <ul class="list-inline form-action">
+                    <li>
+                        <button class="btn btn-default" id="confirmBtn">Confirm</button>
+                    </li>
+                    <li>
+                       <button class="btn btn-default" id="cancelBtn">Cancel</button>
+                    </li>
+                </ul>
+    
+                <!-- form-->
+                         
+            </div>
+        
+            
+            <!-- PORTFOLIO -->
+            <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                <br class="hidden-lg hidden-md">
+                <br class="hidden-lg hidden-md">    
+                
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <h4>Current Portfolio</h4>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+                    <h4><i class="fa fa-money fa-lg"></i> <span id="currentMoney"></span></h4>
+                </div>
+                
+                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                    <table id="table" class="table table-condensed table-striped table-hover no-margin">
+                        <thead>
+                            <th>Company</th>
+                            <th>Quantity</th>
+                            <th>Price Paid</th>
+                            <th></th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
+    <!-- D3 -->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/d3Chart.js"></script>
+    
+    <!-- JqueryCookie -->
+    <script src="js/jquery.cookie.js"></script>
+
+    <!-- custom JS -->
+    <script src="js/behavior.js"></script>
+    <script src="js/backup.js"></script>
+
+</body>
+
+</html>

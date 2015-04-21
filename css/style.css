@@ -1,0 +1,62 @@
+span{
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+}
+
+#errorDiv, #chartDiv{
+    display: none;
+}
+
+#errorDivMessage{
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.chart{
+    margin: 0 auto;
+    margin-bottom: 15px;
+    width: 156px;
+    height: 170px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+.links-list{
+    margin-top: 10px;
+}
+
+#form, .form-action{
+    display: none;
+}
+
+#noMoneyMessage, #noStockMessage{
+    color: #990000;
+    display: none;
+    font-style: italic;
+}
+
+
+
+#value{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-active{
+    border: 1px solid #42dca3;
+    outline: 0;
+    color: #000;
+    background-color: #42dca3;
+}
+
+.blue{
+    color: #11C3FF;
+}
+
+.red{
+    color: #990000;
+}
